@@ -1,3 +1,9 @@
 @use "./Sass/reset";
 @use "./Sass/config";
 @use "./Sass/variable";
+
+@use "./Sass/Component/header";
+.App {
+  width: 100vw;
+  overflow: hidden;
+}
