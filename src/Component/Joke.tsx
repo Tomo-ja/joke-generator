@@ -6,19 +6,25 @@ import starIconSolid from '../images/icon_star_solid.svg'
 import starIconBorder from '../images/icon_star_border.svg'
 
 export default function Joke ({ phrase }: InferProps<typeof Joke.propTypes>) {
+
+	function copyOnClipborad(){
+		navigator.clipboard.writeText(phrase)
+	}
+
   return (
 	<div className='joke'>
 		<p className='joke__phrase'>{phrase}</p>
 		<div className="joke__btn-container">
-			<div className="joke__btn-container_btn">
+			<div className="joke__btn-container__btn">
 				<img 
 					src={copyIconBorder} 
 					alt="copy icon"
 					onMouseOver={e => {e.currentTarget.src = copyIconSolid}}
 					onMouseOut = {e => {e.currentTarget.src = copyIconBorder}}
+					onClick = {copyOnClipborad}
 				/>
 			</div>
-			<div className="joke__btn-container_btn">
+			<div className="joke__btn-container__btn">
 				<img 
 					src={starIconBorder} 
 					alt="copy icon"
