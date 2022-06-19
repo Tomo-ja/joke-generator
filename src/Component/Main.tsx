@@ -6,7 +6,7 @@ export default function Main() {
 	const [pageIndex, setPageIndex] = useState(0)
 
   return (
-	<main>
+	<main className='main'>
 		<Tabbar pageIndex={ pageIndex } setPageIndex = { setPageIndex }/>
 	</main>
   )

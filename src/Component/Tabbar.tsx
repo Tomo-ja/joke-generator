@@ -4,14 +4,15 @@ import PropTypes, { InferProps } from 'prop-types'
 
 export default function Tabbar({ pageIndex, setPageIndex }: InferProps<typeof Tabbar.propTypes>) {
 
-	const tabTitles = ["Joke related profile", "Mage praise", "Insult", "History"]
+	const tabTitles = ["Joke", "Praise", "Insult", "History"]
 
   return (
 	<nav className='tabbar'>
 		<ul className='tabbar__list'>
 			{ tabTitles.map((title, index) => {
-				const className = pageIndex === index ? "tabbar__list__item-active" : "tabbar__list__item"
+				const className = pageIndex === index ? "tabbar__list__item-active TITLE" : "tabbar__list__item TITLE"
 				return <li 
+							key={index}
 							className={className}
 							onClick = {() => setPageIndex(index)}
 						>
