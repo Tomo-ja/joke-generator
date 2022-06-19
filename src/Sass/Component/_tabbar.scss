@@ -1,0 +1,12 @@
+.tabbar {
+  &__list {
+    &__item {
+      border-top: 10px white solid;
+      border-bottom: 10px white solid;
+      &-active {
+        @extend .tabbar__list__item;
+        border-top: 10px hsl(210%, 100%, 60%) solid;
+      }
+    }
+  }
+}

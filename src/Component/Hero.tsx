@@ -20,7 +20,7 @@ export default function Hero() {
 
   return (
 	<div className='hero'>
-		<button onClick={getRandomJoke} className='hero__button'>click</button>
+		<button onClick={getRandomJoke} className='hero__button'>Quick Joke</button>
 		<div className='hero__joke'>
 			{ instantJoke !== undefined && 
 				<Joke phrase={ instantJoke } />
