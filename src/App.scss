@@ -1,6 +1,8 @@
 @use "./Sass/reset";
 @use "./Sass/config";
 @use "./Sass/variable";
+@use "./Sass/Component/joke";
+@use "./Sass/Component/hero";
 
 @use "./Sass/Component/header";
 .App {

@@ -18,9 +18,9 @@ export default function Hero() {
 	}
 
   return (
-	<div>
-		<div>{instantJoke}</div>
-		<button onClick={getRandomJoke}>click</button>
+	<div className='hero'>
+		<div className='hero__joke'>{instantJoke}</div>
+		<button onClick={getRandomJoke} className='hero__button'>click</button>
 	</div>
   )
 }
