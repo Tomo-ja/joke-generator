@@ -1,6 +1,13 @@
+@use "../variable" as *;
+
 .hero {
+  text-align: center;
   &__joke {
+    display: flex;
+    justify-content: center;
   }
   &__button {
+    @include button(210);
+    font-size: 18px;
   }
 }

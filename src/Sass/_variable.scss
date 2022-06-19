@@ -1,11 +1,13 @@
 @mixin button($h) {
   padding: 1em 1.5em;
   border-radius: 1.75em;
-  background-color: hsl($h, 80%, 50%);
+  background-color: hsl($h, 100%, 60%);
   color: #000;
+  border: none;
+  transition: all 0.2s;
 
   &:hover {
-    background-color: hsl($h, 80%, 25%);
+    background-color: hsl($h, 100%, 40%);
     color: #fff;
   }
 }
