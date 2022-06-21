@@ -22,7 +22,7 @@ export default function JokeWithKeyword() {
 		<div className='MAIN-SECTION__CONTENT jokes__explain'>
 			<h2  className='MAIN-SECTION__CONTENT__TITLE'>Generate joke with keyword and their interests</h2>
 			<h3 className='MAIN-SECTION__CONTENT__SUBTITLE'>Keyword:</h3>
-			<p className='MAIN-SECTION__CONTENT__P'>Keyword will be included in jokes. this is optional(maxmam 2 words)</p>
+			<p className='MAIN-SECTION__CONTENT__P'>Keyword will be included in jokes. this is optional (maxmam 2 words)</p>
 			<h3 className='MAIN-SECTION__CONTENT__SUBTITLE'>Interests:</h3>
 			<p className='MAIN-SECTION__CONTENT__P'>This is category of jokes that will be generate. Recommend pick one from person's profile that you will use a joke. this is required </p>
 		</div>
