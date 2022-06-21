@@ -11,3 +11,9 @@
     color: #fff;
   }
 }
+
+@mixin mobile(){
+  @media (max-width: 740px) {
+    @content
+  }
+}
