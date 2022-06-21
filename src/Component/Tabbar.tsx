@@ -10,7 +10,7 @@ export default function Tabbar({ pageIndex, setPageIndex }: InferProps<typeof Ta
 	<nav className='tabbar'>
 		<ul className='tabbar__list'>
 			{ tabTitles.map((title, index) => {
-				const className = pageIndex === index ? "tabbar__list__item-active TITLE" : "tabbar__list__item TITLE"
+				const className = pageIndex === index ? "tabbar__list__item-active TABBAR-TITLE" : "tabbar__list__item TABBAR-TITLE"
 				return <li 
 							key={index}
 							className={className}

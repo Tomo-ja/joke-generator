@@ -1,7 +1,5 @@
 // google font raleway 200 with italic, 400, 600
 // google font open sans 400,600
-@use "./variable" as *;
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:ital,wght@0,400;0,600;1,200&display=swap");
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -27,59 +25,4 @@ p {
 img {
   width: 100%;
   object-fit: cover;
-}
-.TITLE {
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-}
-.MAIN-SECTION{
-  display: flex;
-
-  @include mobile{
-    flex-direction: column;
-  }
-  &__CONTENT{
-    width: 50%;
-    padding: 30px;
-    margin-bottom: 30px;
-
-    &:last-child{
-      position: relative;
-      &::before{
-        content: "";
-        position: absolute;
-        left: -2.5px;
-        width: 5px;
-        height: calc(100% - 30px);
-        border-left: 5px black solid;
-
-        @include mobile{
-          left: 30px;
-          top: 0;
-          width: calc(100% - 60px);
-          height: 5px;
-          border-top: 5px black solid;
-          border-left: none;
-        }
-      }
-    }
-
-    @include mobile{
-      width: 100%;
-    }
-
-    &__TITLE{
-      padding-left: 0;
-      font-family: "Raleway", sans-serif;
-      font-style: italic;
-      font-weight: 600;
-      line-height: 1.25em;
-    }
-    &__SUBTITLE{
-
-    }
-    &__P{
-      padding-left: 2em;
-    }
-  }
 }
