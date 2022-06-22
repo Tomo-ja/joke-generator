@@ -4,6 +4,7 @@ import request from '../Apis/Request'
 import { HistoryJokesContext, JokeModel, JokeResponseModel } from '../App'
 import Interests from './Interests'
 import Joke from './Joke'
+import sampleData from '../Apis/sampleResponse'
 
 
 export default function JokeWithKeyword() {
@@ -20,7 +21,8 @@ export default function JokeWithKeyword() {
 	const keyword2InputEl = useRef<HTMLInputElement | null>(null)
 	const interestInputEl = useRef<HTMLInputElement | null>(null)
 
-	async function getJokesWithKeyword(){
+	async function getJokesWithKeyword(e: React.SyntheticEvent){
+		e.preventDefault()
 		let keyword: string
 		if (keyword2InputEl.current!.value !== undefined){
 			keyword = keyword1InputEl.current!.value + ',' + keyword2InputEl.current!.value
@@ -30,16 +32,24 @@ export default function JokeWithKeyword() {
 		const params: URLSearchParams = new URLSearchParams([
 			["keywords", keyword],
 			["numJokes", '5'],
-			['category', interestInputEl.current!.value],
+			// どんなカテゴリーがあるのかわからない
+			// ['category', interestInputEl.current!.value],
 			["minRating", '5']
 		])
 		try{
 			const jokes = await axios.get(request.fetchJokeWithKeyword, { params })
+			console.log(jokes.data)
 			setJokeResult(() => (
 				Object.values<JokeResponseModel>(jokes.data).map( result => ({phrase: result.joke, favorite: false}))
 			))
 			setIsSearched(true)
 		}catch(e){
+			setJokeResult(()=> ([
+				{phrase: sampleData.long.text, favorite: false},
+				{phrase: sampleData.long.text, favorite: false},
+				{phrase: sampleData.long.text, favorite: false}
+			]))
+			setIsSearched(true)
 			console.log(e)
 		}
 	}
@@ -98,7 +108,7 @@ export default function JokeWithKeyword() {
 			</button>
 		</form>
 		{ isSearched ?
-			<div className='MAIN-SECTION__CONTENT__RESULT'>
+			<div className='MAIN-SECTION__CONTENT'>
 				{jokesResult.map(joke => <Joke joke={joke} setJokeHistory={setJokesHistory} />)}
 			</div> 
 			:
