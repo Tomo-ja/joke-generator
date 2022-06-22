@@ -9,6 +9,13 @@ export interface JokeModel{
     favorite: boolean
 }
 
+export interface JokeResponseModel{
+    "title": string,
+    "joke": string,
+    "category": string,
+    "rating": number
+}
+
 interface JokesContext{
   jokesHistory: JokeModel[],
   setJokesHistory: React.Dispatch<React.SetStateAction<JokeModel[]>>
