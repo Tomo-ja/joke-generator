@@ -4,20 +4,39 @@ import interests from '../Data/interests'
 export default function JokeWithKeyword() {
   return (
 	<section className='MAIN-SECTION jokes'>
-		<form className='MAIN-SECTION__CONTENT jokes__form'>
-			<div className="jokes__form__keyword">
-				<p>Keyword</p>
-				<input type='text' />
-				<input type="text" />
-			</div>
+		<form className='MAIN-SECTION__CONTENT MAIN-SECTION__CONTENT-FORM '>
+			<p className="MAIN-SECTION__CONTENT-FORM__LABEL">Keyword</p>
+			<input 
+				type='text'
+				className="MAIN-SECTION__CONTENT-FORM__INPUT"
+				placeholder='keyword 1 required'
+				required
+			/>
+			<input
+				type="text"
+				className="MAIN-SECTION__CONTENT-FORM__INPUT"
+				placeholder='keyword 2 optional'
+			/>
+			<p className='MAIN-SECTION__CONTENT-FORM__LABEL'>Choose interests</p>
 			<div className='jokes__form__interests'>
-				<div>Choose interests</div>
-				<div>
+			<input
+				type="text"
+				className="MAIN-SECTION__CONTENT-FORM__INPUT"
+				placeholder='Choose one interest'
+				required
+			/>
+				{/* <div>
 					{ Object.values(interests).map( keyword => (
 						<p>{keyword}</p>
 					))}
-				</div>
+				</div> */}
 			</div>
+			<button
+				className="MAIN-SECTION__CONTENT-FORM__SUBMIT"
+
+			>
+				Generate
+			</button>
 		</form>
 		<div className='MAIN-SECTION__CONTENT jokes__explain'>
 			<h2  className='MAIN-SECTION__CONTENT__TITLE'>Generate joke with keyword and their interests</h2>

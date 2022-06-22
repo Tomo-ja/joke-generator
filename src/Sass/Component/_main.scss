@@ -51,6 +51,32 @@
       width: 100%;
     }
 
+    &-FORM{
+      &__LABEL{
+        margin-top: 30px;
+        margin-bottom: 10px;
+        font-size: 20px;
+
+        &:first-child{
+          margin-top: 0;
+        }
+      }
+      &__INPUT{
+        display: block;
+        width: max( 300px, 70% );
+        margin-bottom: 10px;
+        padding: 0.5em 0.75em;
+        border: 1px solid black;
+        border-radius: 1em;
+        font-size: 18px;
+      }
+      &__SUBMIT{
+        @include button(150);
+        margin-top: 30px;
+        font-size: 18px;
+      }
+    }
+
     &__TITLE{
       padding-left: 0;
       font-family: "Raleway", sans-serif;
