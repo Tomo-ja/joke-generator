@@ -1,13 +1,9 @@
-.jokes{
-	&__form{
-		&__keyword{
-
-		}
-		&__interests{
-
-		}
-	}
-	&__explain{
-
+@use "../variable" as *;
+.interests-option{
+	&__item{
+		@include button(50);
+		font-size: 12px;
+		margin-right: 10px;
+		margin-bottom: 10px;
 	}
 }

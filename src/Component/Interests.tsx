@@ -9,10 +9,11 @@ export default function Interests({ setModelState, setInterest, typedOnInputFiel
 									Object.values(interestsList).filter(interest => interest.includes(typedOnInputField!))
 
   return (
-	<div>
+	<div className='interests-option'>
 		{ filteredInterestsList.map ((interest, index) => (
 			<button
 				key={index}
+				className='interests-option__item'
 				value={interest}
 				onClick={(e) => {
 					setInterest((e.target as HTMLButtonElement).value)
