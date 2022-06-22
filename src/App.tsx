@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from './Component/Header';
 import Hero from './Component/Hero';
 import Main from './Component/Main';
 import './App.scss';
+
+interface JokesContext{
+    joke: string,
+    favorite: boolean
+}
+
+const HistoryJokesContext = React.createContext<JokesContext[]>([])
 
 function App() {
   return (
