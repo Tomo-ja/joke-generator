@@ -9,6 +9,10 @@ export interface JokeModel{
     favorite: boolean
 }
 
+export interface TalkResponseModel{
+  "text": string
+}
+
 export interface JokeResponseModel{
     "title": string,
     "joke": string,

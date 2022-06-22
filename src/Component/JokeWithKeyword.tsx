@@ -36,20 +36,18 @@ export default function JokeWithKeyword() {
 			// ['category', interestInputEl.current!.value],
 			["minRating", '5']
 		])
+		setIsSearched(true)
 		try{
 			const jokes = await axios.get(request.fetchJokeWithKeyword, { params })
-			console.log(jokes.data)
 			setJokeResult(() => (
 				Object.values<JokeResponseModel>(jokes.data).map( result => ({phrase: result.joke, favorite: false}))
 			))
-			setIsSearched(true)
 		}catch(e){
 			setJokeResult(()=> ([
 				{phrase: sampleData.long.text, favorite: false},
 				{phrase: sampleData.long.text, favorite: false},
 				{phrase: sampleData.long.text, favorite: false}
 			]))
-			setIsSearched(true)
 			console.log(e)
 		}
 	}
