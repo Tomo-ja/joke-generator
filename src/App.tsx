@@ -22,6 +22,7 @@ export const HistoryJokesContext = React.createContext<JokesContext>({
 function App() {
 
   const [jokesHistory, setJokesHistory] = useState<JokeModel[]>([])
+  
   return (
     <div className="App">
       <Header />

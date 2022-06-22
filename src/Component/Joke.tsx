@@ -7,12 +7,23 @@ import starIconBorder from '../images/icon_star_border.svg'
 
 interface JokeProps{
 	joke: JokeModel
+	setJokeHistory: React.Dispatch<React.SetStateAction<JokeModel[]>>
 }
 
-export default function Joke ({ joke }: JokeProps) {
+export default function Joke ({ joke, setJokeHistory }: JokeProps) {
 
 	function copyOnClipborad(){
 		navigator.clipboard.writeText(joke.phrase)
+		setJokeHistory(prev => [...prev, joke])
+	}
+
+	function markFavoriteJoke(){
+		joke.favorite = !joke.favorite
+		if (joke.favorite){
+			setJokeHistory(prev => [...prev, joke])
+		}else{
+			setJokeHistory(prev => (prev.filter(prevJoke => prevJoke.phrase !== joke.phrase)))
+		}
 	}
 
   return (
@@ -30,10 +41,13 @@ export default function Joke ({ joke }: JokeProps) {
 			</div>
 			<div className="joke__btn-container__btn">
 				<img 
-					src={starIconBorder} 
+					src={ joke.favorite ? starIconSolid : starIconBorder} 
 					alt="copy icon"
+					onClick={() => {markFavoriteJoke()}}
 					onMouseOver={e => {e.currentTarget.src = starIconSolid}}
-					onMouseOut = {e => {e.currentTarget.src = starIconBorder}}
+					onMouseOut = {e => { 
+						e.currentTarget.src = joke.favorite ? starIconSolid : starIconBorder
+					}}
 				/>
 			</div>
 		</div>

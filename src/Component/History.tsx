@@ -11,7 +11,7 @@ export default function History() {
 	<section>
     { jokesHistory.length === 0 ? 
       <h2>Jokes you copied or your favorite will be displayed here</h2> :
-      jokesHistory.map( joke => (<Joke joke={joke} />))
+      jokesHistory.map( joke => (<Joke joke={joke} setJokeHistory={setJokesHistory} />))
     }
   </section>
   )

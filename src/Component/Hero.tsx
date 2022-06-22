@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
-import { JokeModel } from '../App'
+import React, { useContext, useState } from 'react'
+import { JokeModel, HistoryJokesContext } from '../App'
 import axios from '../Apis/axios'
 import request from '../Apis/Request'
 import sampleData from '../Apis/sampleResponse'
 import Joke from './Joke'
 
 export default function Hero() {
+
+	const { setJokesHistory } = useContext(HistoryJokesContext)
 
 	const [instantJoke, setInstantJoke] = useState<undefined | JokeModel>()
 
@@ -24,7 +26,7 @@ export default function Hero() {
 		<button onClick={getRandomJoke} className='hero__button'>Quick Joke</button>
 		<div className='hero__joke'>
 			{ instantJoke !== undefined && 
-				<Joke joke={ instantJoke } />
+				<Joke joke={ instantJoke } setJokeHistory = {setJokesHistory} />
 			}
 		</div>
 	</div>

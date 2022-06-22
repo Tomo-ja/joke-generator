@@ -10,6 +10,8 @@
   box-shadow: 8px 5px 10px #979797, -14px -14px 29px #ffffff;
   margin: 25px;
   margin-bottom: none;
+  transition: all 4s;
+  animation: popup 1s forwards;
   &__phrase {
     flex-grow: 1;
   }
@@ -26,5 +28,17 @@
         margin-right: 1.5em;
       }
     }
+  }
+}
+
+// transform doesn't work
+@keyframes popup {
+  0% {
+    opacity: 0;
+    // transform: rotateY(-50px);
+  }
+  100%{
+    opacity: 1;
+    // transform: translateY(0);
   }
 }
