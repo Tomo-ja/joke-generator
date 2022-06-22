@@ -1,7 +1,22 @@
-import React from 'react'
-import interests from '../Data/interests'
+import React, { useState, useEffect,  useRef } from 'react'
+import Interests from './Interests'
+
 
 export default function JokeWithKeyword() {
+
+	const [isInterestSelectorOpen, setIsInterestSelectorOpen] = useState(false)
+	const [selectedInterest, setSelectedInterest] = useState<string | undefined>(undefined)
+	const [inputFieldValue, setInputFieldValue] = useState<string | undefined>(undefined)
+
+	const interestInputEl = useRef<HTMLInputElement | null>(null)
+
+	useEffect(()=> {
+		if((interestInputEl !== null) && (selectedInterest !== undefined)){
+			interestInputEl.current!.value = selectedInterest
+			setInputFieldValue(interestInputEl.current!.value)
+		}	
+	}, [selectedInterest])
+
   return (
 	<section className='MAIN-SECTION jokes'>
 		<form className='MAIN-SECTION__CONTENT MAIN-SECTION__CONTENT-FORM '>
@@ -17,23 +32,31 @@ export default function JokeWithKeyword() {
 				className="MAIN-SECTION__CONTENT-FORM__INPUT"
 				placeholder='keyword 2 optional'
 			/>
-			<p className='MAIN-SECTION__CONTENT-FORM__LABEL'>Choose interests</p>
+			<p className='MAIN-SECTION__CONTENT-FORM__LABEL'>Interest</p>
 			<div className='jokes__form__interests'>
 			<input
 				type="text"
 				className="MAIN-SECTION__CONTENT-FORM__INPUT"
 				placeholder='Choose one interest'
+				ref={interestInputEl}
+				onChange={(e) => {
+					setInputFieldValue(e.target.value)
+				}}
+				onFocus = {()=> {setIsInterestSelectorOpen(true)}}
+				// bug when is active buttion
+				// onBlur = {() => {setIsInterestSelectorOpen(false)}}
 				required
 			/>
-				{/* <div>
-					{ Object.values(interests).map( keyword => (
-						<p>{keyword}</p>
-					))}
-				</div> */}
+			{ isInterestSelectorOpen && 
+				<Interests 
+					setModelState={setIsInterestSelectorOpen}
+					setInterest = {setSelectedInterest}
+					typedOnInputField = {inputFieldValue}
+				/>
+			}
 			</div>
 			<button
 				className="MAIN-SECTION__CONTENT-FORM__SUBMIT"
-
 			>
 				Generate
 			</button>
